@@ -1,4 +1,4 @@
-/*dasdasd*/
+
 public class Refactor03 {
 
 	private static int colPeonNegra;
@@ -12,17 +12,20 @@ public class Refactor03 {
 		//Calculamos el movimiento de un peón en un tablero de ajedrez
 		//Para una partida con más peones
 		//Juegan negras en la parte inferior del tablero
-	
+		colPeonNegra=1;
+		filPeonNegra=3;
+		colPeonBlanca=1;
+		filPeonBlanca=3;
 		
 		//Calculamos siguiente movimieto
-		if((colPeonNegra++==colPeonBlanca)&&(filPeonNegra++==filPeonBlanca)){
+		if(testMoverDiagonalDerBlanco()){
 			//Me como blanca colocado en diagonal derecha
 			movPeonDiagonalDerecha();
-		}else if((colPeonNegra++==colPeonBlanca)&&(filPeonNegra--==filPeonBlanca)){
+		}else if(testMoverDiagonalIzqBlanco()){
 			//Este movimiento está mal
 			//Me como blanca colocado en diagonal izda
 			movPeonDiagonalIzq();
-		}else if((colPeonNegra++!=colPeonBlanca)){
+		}else if(testMoverPeonNegroAdelante()){
 			//Muevo adelante
 			MuevoAdelante();
 		}
@@ -38,6 +41,14 @@ public class Refactor03 {
 	public static void MuevoAdelante(){
 		sigmovColPeonNegra=colPeonNegra++;
 	}
-		
+	public static boolean testMoverDiagonalDerBlanco(){
+		return ((colPeonNegra++==colPeonBlanca)&&(filPeonNegra++==filPeonBlanca))?true:false;
+	}
+	public static boolean testMoverDiagonalIzqBlanco(){
+		return ((colPeonNegra++==colPeonBlanca)&&(filPeonNegra--==filPeonBlanca))?true:false;
+	}
+	public static boolean testMoverPeonNegroAdelante(){
+		return (colPeonNegra++!=colPeonBlanca)?true:false;
+	}
 }
 
